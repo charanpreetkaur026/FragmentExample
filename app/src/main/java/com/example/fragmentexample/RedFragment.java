@@ -1,7 +1,6 @@
 package com.example.fragmentexample;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -21,11 +21,12 @@ import android.view.ViewGroup;
  * Use the {@link RedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RedFragment extends Fragment {
+public class RedFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Button btnRed;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,9 +73,9 @@ public class RedFragment extends Fragment {
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(String str) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction(str);
         }
     }
 
@@ -91,8 +92,17 @@ public class RedFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+
         super.onViewCreated(view, savedInstanceState);
         // Get the ids of views here
+        btnRed = view.findViewById(R.id.btnSelector);
+        btnRed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed("Hello from RED");
+            }
+        });
 
     }
 
@@ -101,6 +111,8 @@ public class RedFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -114,6 +126,6 @@ public class RedFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String uri);
     }
 }

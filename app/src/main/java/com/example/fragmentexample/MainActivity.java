@@ -8,13 +8,16 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RedFragment.OnFragmentInteractionListener {
 
+    private TextView txtTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        txtTitle = findViewById(R.id.txtMainTitle);
     }
 
     @Override
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
            // mBlueFragment = (BlueFragment) mFragmentManager.findFragmentByTag("BLUE");
             mFragmentTransaction.add(R.id.fragment_container, mBlueFragment, "BLUE");
 
+
         }else if (item.getItemId() == R.id.action_add){
 
            AdditionFragment mAdditionFragment = new AdditionFragment();
@@ -44,5 +48,10 @@ public class MainActivity extends AppCompatActivity {
         }
         mFragmentTransaction.commit();
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(String str) {
+    txtTitle.setText(str);
     }
 }
