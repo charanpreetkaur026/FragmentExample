@@ -127,5 +127,7 @@ public class RedFragment extends Fragment  {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(String uri);
+
+        void onClick(View v);
     }
 }
