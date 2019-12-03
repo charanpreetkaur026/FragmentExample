@@ -4,6 +4,7 @@ package com.example.fragmentexample;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -44,6 +45,12 @@ public class BlueFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.e(fragmentTag, "onViewCreated  invoked");
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.e(fragmentTag, "onActivityCreated invoked");
@@ -71,6 +78,12 @@ public class BlueFragment extends Fragment {
     public void onStop() {
         super.onStop();
         Log.e(fragmentTag, "onStop invoked");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.e(fragmentTag, "onDestroyView invoked");
     }
 
     @Override

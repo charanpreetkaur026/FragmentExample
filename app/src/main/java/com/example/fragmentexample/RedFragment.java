@@ -96,13 +96,13 @@ public class RedFragment extends Fragment  {
 
         super.onViewCreated(view, savedInstanceState);
         // Get the ids of views here
-        btnRed = view.findViewById(R.id.btnSelector);
-        btnRed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onButtonPressed("Hello from RED");
-            }
-        });
+////        btnRed = view.findViewById(R.id.btnSelector);
+//        btnRed.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onButtonPressed("Hello from RED");
+//            }
+//        });
 
     }
 

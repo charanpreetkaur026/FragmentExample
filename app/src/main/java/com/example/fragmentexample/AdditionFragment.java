@@ -72,5 +72,21 @@ public class AdditionFragment extends Fragment {
         super.onStop();
         Log.e(fragmentTag, "onStop invoked");
     }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.e(fragmentTag, "onDestroyView invoked");
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e(fragmentTag, "onDestroy invoked");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.e(fragmentTag, "onDetach invoked");
+    }
 }
