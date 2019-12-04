@@ -28,6 +28,7 @@ public class AdditionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.e(fragmentTag, "onCreateView invoked");
         return inflater.inflate(R.layout.fragment_addition, container, false);
     }
     @Override

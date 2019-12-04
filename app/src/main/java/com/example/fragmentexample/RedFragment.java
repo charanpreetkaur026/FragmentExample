@@ -7,23 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RedFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class RedFragment extends Fragment  {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String fragmentTag = "Tag Red Fragment";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private Button btnRed;
@@ -38,15 +31,8 @@ public class RedFragment extends Fragment  {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RedFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
+
     public static RedFragment newInstance(String param1, String param2) {
         RedFragment fragment = new RedFragment();
         Bundle args = new Bundle();
@@ -58,6 +44,7 @@ public class RedFragment extends Fragment  {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.e(fragmentTag,"onCreate invoked");
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -68,6 +55,7 @@ public class RedFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.e(fragmentTag,"onCreateView invoked");
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_red, container, false);
     }
@@ -81,6 +69,7 @@ public class RedFragment extends Fragment  {
 
     @Override
     public void onAttach(Context context) {
+        Log.e(fragmentTag,"onAttach invoked");
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
@@ -93,7 +82,7 @@ public class RedFragment extends Fragment  {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-
+        Log.e(fragmentTag,"onViewCreated invoked");
         super.onViewCreated(view, savedInstanceState);
         // Get the ids of views here
 ////        btnRed = view.findViewById(R.id.btnSelector);
@@ -107,23 +96,42 @@ public class RedFragment extends Fragment  {
     }
 
     @Override
+    public void onStart() {
+        Log.e(fragmentTag,"onStart invoked");
+        super.onStart();
+    }
+
+    @Override
+    public void onPause() {
+        Log.e(fragmentTag,"onPause invoked");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.e(fragmentTag,"onStop invoked");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.e(fragmentTag,"onDestroy invoked");
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDestroyView() {
+        Log.e(fragmentTag,"onDestroyView invoked");
+        super.onDestroyView();
+    }
+
+    @Override
     public void onDetach() {
+        Log.e(fragmentTag,"onDetach invoked");
         super.onDetach();
         mListener = null;
     }
 
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(String uri);
